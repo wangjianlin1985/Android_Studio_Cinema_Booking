@@ -1,0 +1,117 @@
+﻿<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.chengxusheji.domain">
+
+	<class name="Movie" table="Movie">
+
+          <!-- 主键电影id -->
+          <id name="movieId" column="movieId">
+            <generator class="native"/>
+          </id>
+
+          <!-- 多对一属性: 影片类型 -->
+          <many-to-one name="movieTypeObj"
+            column="movieTypeObj"
+            class="MovieType"
+            lazy="false"
+            outer-join="true"
+            cascade="save-update"
+          />
+
+          <!-- 简单字符串属性: 影片名称 -->
+          <property
+            name="movieName"
+            column="movieName"
+            type="string"
+            length="40"
+          />
+
+          <!-- 简单图片属性: 影片图片 -->
+          <property
+            name="moviePhoto"
+            column="moviePhoto"
+            type="string"
+            length="50"
+          />
+
+          <!-- 简单字符串属性: 导演 -->
+          <property
+            name="director"
+            column="director"
+            type="string"
+            length="20"
+          />
+
+          <!-- 简单字符串属性: 主演 -->
+          <property
+            name="mainPerformer"
+            column="mainPerformer"
+            type="string"
+            length="40"
+          />
+
+          <!-- 简单字符串属性: 时长 -->
+          <property
+            name="duration"
+            column="duration"
+            type="string"
+            length="20"
+          />
+
+          <!-- 多对一属性: 地区 -->
+          <many-to-one name="areaObj"
+            column="areaObj"
+            class="Area"
+            lazy="false"
+            outer-join="true"
+            cascade="save-update"
+          />
+
+          <!-- 简单字符串属性: 放映时间 -->
+          <property
+            name="playTime"
+            column="playTime"
+            type="string"
+            length="30"
+          />
+
+          <!-- 简单浮点型属性: 票价 -->
+          <property
+            name="price"
+            column="price"
+            type="float"
+          />
+
+          <!-- 简单字符串属性: 剧情简介 -->
+          <property
+            name="opera"
+            column="opera"
+            type="string"
+            length="2000"
+          />
+
+          <!-- 简单字符串属性: 是否推荐 -->
+          <property
+            name="recommendFlag"
+            column="recommendFlag"
+            type="string"
+            length="20"
+          />
+
+          <!-- 简单整型属性: 点击率 -->
+          <property
+            name="hitNum"
+            column="hitNum"
+            type="int"
+
+          />
+
+
+		 
+		
+	</class>
+	
+</hibernate-mapping>
+ 
